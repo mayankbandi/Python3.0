@@ -1,0 +1,62 @@
+# Task I: Get all order Statuses from orders data (loop through list.get order status and add it to the set)
+ordersPath = "C:\\Users\\Mayank\\Desktop\\Bing.txt"
+ordersfile = ogen(orderspath)
+ordersData = ordersFile.read()
+orders
+#set can be initialized by saying set({}) or set([])
+orderStatuses = set([])
+for order in orders:
+	orderStatuses.add(order.split(",")[3])
+for i in orderStatuses:
+	print(i)
+	
+#Task 2: Create a function to get revenue for a given order_id (from order_items)	
+def readData(dataPath):
+	dataFile = open(dataPath)
+	dataStr = dataFile.read()
+	dataList = dataStr.splitlines()
+	return dataList
+	
+ordersPath = '/data/retail_db/orders/part-00000'
+orders = readData(ordersPath)
+
+s = set([])
+for i in orders:
+	s.add(orders.split(",")[3])
+	
+for i in s:
+		print(i)
+	
+orderItemPath = '/data/retail_db/order_items/part-00000'
+orderItems = readData(orderItemPath)
+
+def getOrderRevenue(orderItems,order_id):
+	orderRevnue = 0.0
+	for orderItem in orderItems:
+		if(int(orderItem.split(",")[1]) == order_id):
+			orderRevnue += float(orderItem.split(",")[4])
+			return orderRevnue
+			
+getOrderRevenue(orderItems,2)			
+
+#Task 3: Create a function to get revenue for a each order_id (from order_items)	
+def readData(dataPath):
+	dataFile = open(dataPath)
+	dataStr = dataFile.read()
+	dataList = dataStr.splitlines()
+	return dataList
+	
+orderItemPath = '/data/retail_db/order_items/part-00000'
+orderItems = readData(orderItemPath)
+
+def getRevenuePerOrder(orderItems)
+		revenuePerOrder = {}
+		for orderItem in orderItems:
+			orderItemTuple = (int(orderItems.split(",")[1]),float(orderItems.split(",")[4])
+			if(revenuePerOrder.get(orderItemTuple[0])):
+				revenuePerOrder[orderItemTuple[0]] += orderItemTuple[1]
+			else:
+				revenuePerOrder[orderItemTuple[0]] = orderItemTuple[1]
+		return revenuePerOrder
+
+revenuePerOrder = getRevenuePerOrder(orderItems)
